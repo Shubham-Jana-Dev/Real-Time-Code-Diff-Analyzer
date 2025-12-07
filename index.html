@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Real-Time Code Diff Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Code Diff Analyzer 📊 (Stable Input)</h1>
+        <div class="stats-bar">
+            <span class="stat-item">Difference: <strong id="percentageDisplay">0%</strong></span>
+            <span class="stat-item">First Change: Line <strong id="lineDisplay">-</strong>, Col <strong id="colDisplay">-</strong></span>
+        </div>
+        <div class="controls">
+            <button id="prevBtn" title="Previous Change">← Previous</button>
+            <button id="nextBtn" title="Next Change">Next →</button>
+        </div>
+    </header>
+
+    <main class="editor-container">
+        
+        <div class="editor-panel">
+            <h2>Version A (Original)</h2>
+            <button class="clear-btn" id="clearA">Clear A</button> 
+            
+            <div class="input-wrapper" id="inputWrapperA">
+                <div class="line-numbers input-numbers" id="inputLineNumbersA"></div>
+                <textarea id="versionAInput" class="paste-input" 
+                          placeholder="Paste code for Version A here..."
+                          onscroll="syncScrollInput('versionAInput', 'inputLineNumbersA')"></textarea>
+            </div>
+            
+            <div class="code-wrapper">
+                <div class="line-numbers" id="lineNumbersA"></div>
+                <div class="code-editor" id="codeEditorA" 
+                     onscroll="syncScrollDisplay('codeEditorA', 'codeEditorB')"></div> 
+            </div>
+        </div>
+
+        <div class="editor-panel">
+            <h2>Version B (Modified)</h2>
+            <button class="clear-btn" id="clearB">Clear B</button> 
+            
+            <div class="input-wrapper" id="inputWrapperB">
+                <div class="line-numbers input-numbers" id="inputLineNumbersB"></div>
+                <textarea id="versionBInput" class="paste-input" 
+                          placeholder="Paste code for Version B here..."
+                          onscroll="syncScrollInput('versionBInput', 'inputLineNumbersB')"></textarea>
+            </div>
+            
+            <div class="code-wrapper">
+                <div class="line-numbers" id="lineNumbersB"></div>
+                <div class="code-editor" id="codeEditorB" 
+                     onscroll="syncScrollDisplay('codeEditorB', 'codeEditorA')"></div> 
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/diff-match-patch/index.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

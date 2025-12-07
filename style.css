@@ -1,0 +1,193 @@
+/* Basic Reset and Layout */
+body {
+    font-family: 'Consolas', 'Monaco', monospace; 
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; 
+    color: #cccccc;
+}
+
+header {
+    background-color: #252526;
+    padding: 10px 20px;
+    border-bottom: 1px solid #000000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 0;
+    color: #007acc; 
+}
+
+.stats-bar, .controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-item strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Button Styling (Navigation) */
+#prevBtn, #nextBtn {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: #005f99;
+}
+
+/* Clear Button Styling */
+.clear-btn {
+    position: absolute;
+    top: 5px; 
+    right: 5px;
+    background: #444;
+    color: #fff;
+    border: none;
+    padding: 2px 8px;
+    font-size: 0.8em;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 3px;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.clear-btn:hover {
+    opacity: 1.0;
+    background: #555;
+}
+
+.editor-container {
+    height: calc(100vh - 58px); 
+    display: flex;
+}
+
+.editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #000000;
+    position: relative; 
+    overflow: hidden;
+}
+
+h2 {
+    background-color: #3c3c3c;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 1em;
+    margin: 0;
+    flex-shrink: 0; 
+}
+
+/* INPUT WRAPPER STYLES (Increased Height to 200px) */
+.input-wrapper {
+    display: flex;
+    width: 100%;
+    height: 200px; /* INCREASED SIZE */
+    flex-shrink: 0;
+    border-bottom: 1px solid #000000;
+    overflow: hidden;
+}
+
+/* STABLE INPUT TEXTAREA */
+.paste-input {
+    flex-grow: 1;
+    height: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: none; 
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 18px;
+    background-color: #252526;
+    color: #cccccc;
+    outline: none;
+    overflow-y: scroll;
+}
+
+
+/* Line Numbers (Default for display panels) */
+.line-numbers {
+    width: 40px;
+    flex-shrink: 0; 
+    padding: 5px 5px 5px 0;
+    text-align: right;
+    color: #858585;
+    background-color: #252526;
+    font-size: 14px;
+    line-height: 18px; 
+    white-space: pre;
+    user-select: none;
+    overflow-y: hidden; 
+}
+
+/* Specific styling for Line Numbers in the Input Section */
+.input-numbers {
+    background-color: #252526; 
+}
+
+
+/* Code Editor Div (Display Panel) */
+.code-wrapper {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.code-editor {
+    flex-grow: 1;
+    overflow-y: scroll; 
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 18px; 
+    white-space: pre; 
+    font-family: inherit;
+    background-color: #1e1e1e;
+    outline: none; 
+    cursor: default; 
+}
+
+/* Diff Highlighting */
+.code-editor span {
+    display: block; 
+    width: 100%;
+    min-height: 18px; 
+}
+
+.added {
+    background-color: #285435 !important; /* Green */
+}
+
+.removed {
+    background-color: #6a0000 !important; /* Red */
+}
+
+/* NEW: Active Change Highlight (Purple) */
+.active-diff {
+    background-color: #58356E !important; 
+    outline: 1px solid #BB86FC; /* Border for visibility */
+}
+
+.placeholder {
+    background-color: transparent !important;
+    color: transparent !important; 
+}
